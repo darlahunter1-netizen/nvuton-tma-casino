@@ -1,0 +1,25 @@
+// nvuTON Higher/Lower Contract
+#include <stdlib.fc>;
+
+() recv_internal(int msg_value, cell in_msg_full, slice in_msg_body) impure {
+  if (in_msg_body.slice_empty?()) { throw(100); }
+
+  // Разбор: isHigher (1/0)
+  int is_higher = in_msg_body~load_uint(1);
+
+  // Генерация случайного числа 1-999999 (используй VRF в проде)
+  int prev_num = get_data().begin_parse()~load_uint(32); // Храним предыдущее
+  int new_num = (now() + random() % 999999) + 1; // Упрощённо; в реальности - оракул
+
+  // Проверка выигрыша
+  bool won = (is_higher && new_num > prev_num) || (!is_higher && new_num < prev_num);
+
+  // Сохраняем новое число
+  set_data(begin_cell().store_uint(new_num, 32).end_cell());
+
+  if (won) {
+    // Выплата x1.98 (house edge 1%)
+    int payout = (msg_value * 198) / 100;
+    send_rawmsg(slice_address(in_msg_full~load_msg_addr()), payout, 0);
+  }
+}

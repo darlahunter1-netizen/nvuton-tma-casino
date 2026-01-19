@@ -1,0 +1,8 @@
+{
+  "contracts": [
+    {
+      "name": "nvuton",
+      "path": "./contracts/nvuton.func"
+    }
+  ]
+}

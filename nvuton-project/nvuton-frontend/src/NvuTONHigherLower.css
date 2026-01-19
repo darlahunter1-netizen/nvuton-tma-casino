@@ -1,0 +1,146 @@
+.nvuton-hl {
+  min-height: 100vh;
+  background: #0a0a14;
+  color: #e0e0ff;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  touch-action: manipulation; /* лучшее касание на мобильном */
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+}
+
+.balance span { color: #00ff88; font-weight: bold; }
+.connect-btn {
+  background: #0066ff;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.game-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.current-number {
+  font-size: 4.5rem; /* огромный размер, как в твоей любимой картинке */
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(0, 170, 255, 0.6);
+  margin: 20px 0;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.streak-info {
+  font-size: 1.4rem;
+  margin: 12px 0;
+  color: #ffd700;
+}
+
+.result {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 16px;
+  margin: 16px 0;
+}
+
+.result.win { background: rgba(0, 255, 136, 0.2); color: #00ff88; }
+.result.lose { background: rgba(255, 80, 80, 0.2); color: #ff5050; }
+
+.bet-controls {
+  padding: 16px;
+  background: rgba(20, 20, 40, 0.8);
+  border-top: 1px solid #222244;
+}
+
+.bet-input label { display: block; margin-bottom: 8px; color: #aaa; }
+.bet-input input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.4rem;
+  background: #1a1a33;
+  border: 1px solid #333366;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.quick-bets {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.quick-bets button {
+  flex: 1;
+  padding: 10px;
+  background: #2a2a4a;
+  border: none;
+  color: #a0d0ff;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.higher-btn, .lower-btn {
+  flex: 1;
+  padding: 24px 16px; /* огромные зоны касания */
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.higher-btn {
+  background: linear-gradient(145deg, #00cc66, #00ff88);
+}
+.lower-btn {
+  background: linear-gradient(145deg, #ff4040, #cc0000);
+}
+
+.higher-btn:active, .lower-btn:active { transform: scale(0.95); }
+
+.history-panel {
+  padding: 16px;
+  background: #0f0f1a;
+  border-top: 1px solid #222244;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.history-panel h3 { font-size: 1.1rem; color: #888; margin-bottom: 8px; }
+.history-panel ul { list-style: none; padding: 0; margin: 0; }
+.history-panel li {
+  padding: 8px 0;
+  border-bottom: 1px solid #222;
+  font-size: 1rem;
+}
+.history-panel .win { color: #00ff88; }
+.history-panel .lose { color: #ff6060; }

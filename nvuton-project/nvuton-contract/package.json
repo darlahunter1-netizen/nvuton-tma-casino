@@ -1,0 +1,12 @@
+{
+  "name": "nvuton-contract",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "toncli build",
+    "deploy": "toncli deploy",
+    "test": "toncli test"
+  },
+  "devDependencies": {
+    "@toncli/core": "^latest"
+  }
+}
